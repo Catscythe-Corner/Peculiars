@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "#X#",
+    "###"
+  ],
+  "key": {
+    "X": {
+      "item": "peculiars:yucca_ice_cream"
+    },
+    "#": {
+      "item": "minecraft:snow_block"
+    }
+  },
+  "result": {
+    "item": "peculiars:yucca_ice_cream_block",
+    "count": 8
+  },
+  "conditions": [
+    {
+      "type": "peculiars:config",
+      "value": "enable_atmospheric_food"
+    }
+  ]
+}

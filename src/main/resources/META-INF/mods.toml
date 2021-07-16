@@ -1,0 +1,40 @@
+modLoader="javafml"
+loaderVersion="[35,)"
+license="All rights reserved"
+
+[[mods]]
+modId="peculiars" #mandatory
+version="${file.jarVersion}" #mandatory
+displayName="Peculiars"
+logoFile="peculiars.png"
+credits="Thanks to Team Abnormals for creating Neapolitan and the MCAbnormals mods."
+authors="cosmicgelatin, Catscythe"
+description='''Addon for Neapolitan that adds new foods for all of the flavors in MCAbnormals mods (starting with Atmospheric).'''
+
+[[dependencies.peculiars]]
+    modId="forge"
+    mandatory=true
+    versionRange="[35,)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.peculiars]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.16.3,)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.peculiars]]
+    modId="neapolitan"
+    mandatory=true
+    versionRange="[2.0.1,)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.peculiars]]
+    modId="abnormals_core"
+    mandatory=true
+    versionRange="[3.1.1,)"
+    ordering="AFTER"
+    side="BOTH"

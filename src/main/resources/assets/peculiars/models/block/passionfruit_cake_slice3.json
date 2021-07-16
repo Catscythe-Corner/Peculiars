@@ -1,0 +1,10 @@
+{
+  "parent": "block/cake_slice3",
+  "textures": {
+    "particle": "peculiars:block/passionfruit/passionfruit_cake_side",
+    "bottom": "peculiars:block/passionfruit/passionfruit_cake_bottom",
+    "top": "peculiars:block/passionfruit/passionfruit_cake_top",
+    "side": "peculiars:block/passionfruit/passionfruit_cake_side",
+    "inside": "peculiars:block/passionfruit/passionfruit_cake_inner"
+  }
+}

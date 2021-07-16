@@ -1,0 +1,10 @@
+{
+  "parent": "block/cake_slice4",
+  "textures": {
+    "particle": "peculiars:block/yucca/yucca_cake_side",
+    "bottom": "peculiars:block/yucca/yucca_cake_bottom",
+    "top": "peculiars:block/yucca/yucca_cake_top",
+    "side": "peculiars:block/yucca/yucca_cake_side",
+    "inside": "peculiars:block/yucca/yucca_cake_inner"
+  }
+}

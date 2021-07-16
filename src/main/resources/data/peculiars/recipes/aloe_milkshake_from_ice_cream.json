@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:glass_bottle"
+    },
+    {
+      "item": "minecraft:glass_bottle"
+    },
+    {
+      "item": "minecraft:glass_bottle"
+    },
+    {
+      "item": "peculiars:aloe_ice_cream"
+    },
+    {
+      "item": "neapolitan:dried_vanilla_pods"
+    },
+    {
+      "tag": "forge:milk"
+    }
+  ],
+  "result": {
+    "item": "peculiars:aloe_milkshake",
+    "count": 3
+  },
+  "conditions": [
+    {
+      "type": "peculiars:config",
+      "value": "enable_atmospheric_food"
+    }
+  ]
+}

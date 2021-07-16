@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:bowl"
+    },
+    {
+      "item": "atmospheric:passionfruit"
+    },
+    {
+      "tag": "forge:milk"
+    },
+    {
+      "item": "neapolitan:ice_cubes"
+    },
+    {
+      "item": "minecraft:sugar"
+    }
+  ],
+  "result": {
+    "item": "peculiars:passionfruit_ice_cream",
+    "count": 1
+  },
+  "conditions": [
+    {
+      "type": "peculiars:config",
+      "value": "enable_atmospheric_food"
+    }
+  ]
+}

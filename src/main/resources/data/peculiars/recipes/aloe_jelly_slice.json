@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "atmospheric:aloe_leaves"
+    },
+    {
+      "item": "atmospheric:yellow_blossoms"
+    },
+    {
+      "item": "minecraft:cookie"
+    },
+    {
+      "item": "minecraft:sugar"
+    }
+  ],
+  "result": {
+    "item": "peculiars:aloe_jelly_slice",
+    "count": 1
+  },
+  "conditions": [
+    {
+      "type": "peculiars:config",
+      "value": "enable_atmospheric_food"
+    }
+  ]
+}

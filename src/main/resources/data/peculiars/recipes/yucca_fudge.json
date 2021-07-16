@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "neapolitan:chocolate_bar"
+    },
+    {
+      "item": "atmospheric:yucca_fruit"
+    }
+  ],
+  "result": {
+    "item": "peculiars:yucca_fudge",
+    "count": 1
+  },
+  "conditions": [
+    {
+      "type": "peculiars:config",
+      "value": "enable_atmospheric_food"
+    }
+  ]
+}
