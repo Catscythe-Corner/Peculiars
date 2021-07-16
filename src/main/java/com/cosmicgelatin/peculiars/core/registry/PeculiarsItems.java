@@ -47,7 +47,7 @@ public class PeculiarsItems {
 
         public static final Food PASSIONFRUIT_ICE_CREAM = (new Food.Builder()).hunger(6).saturation(0.42F).effect(() -> new EffectInstance(Effects.SLOWNESS, 100, 2), 1.0F).effect(() -> new EffectInstance(AtmosphericEffects.SPITTING.get(), 100, 2), 1.0F).build();
         public static final Food PASSIONFRUIT_MILKSHAKE = (new Food.Builder()).hunger(3).saturation(0.6F).build();
-        public static final Food PASSIONFRUIT_CAKE = (new Food.Builder()).hunger(1).saturation(0.1F).effect(() -> new EffectInstance(AtmosphericEffects.SPITTING.get(), 100), 1.0F).build();
+        public static final Food PASSIONFRUIT_CAKE = (new Food.Builder()).hunger(1).saturation(0.1F).effect(() -> new EffectInstance(AtmosphericEffects.RELIEF.get(), 100), 1.0F).build();
 
         public static final Food TROPICAL_SALAD = (new Food.Builder()).hunger(6).saturation(1.1F).effect(() -> new EffectInstance(AtmosphericEffects.SPITTING.get(), 100), 1.0F).effect(() -> new EffectInstance(AtmosphericEffects.PERSISTENCE.get(), 200, 1), 1.0F).effect(() -> new EffectInstance(AtmosphericEffects.GELLED.get(), 400, 1), 1.0F).build();
 
