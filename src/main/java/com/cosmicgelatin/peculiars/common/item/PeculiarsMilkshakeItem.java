@@ -6,7 +6,6 @@ import com.google.common.collect.ImmutableList;
 import com.minecraftabnormals.atmospheric.core.registry.AtmosphericEffects;
 import com.minecraftabnormals.neapolitan.common.item.DrinkItem;
 import com.minecraftabnormals.neapolitan.core.registry.NeapolitanEffects;
-import com.minecraftabnormals.upgrade_aquatic.core.registry.UAEffects;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;

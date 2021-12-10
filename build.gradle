@@ -16,7 +16,7 @@ version = "${mc_version}-${mod_version}"
 group = 'com.cosmicgelatin'
 archivesBaseName = 'peculiars'
 
-sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
+java.toolchain.languageVersion = JavaLanguageVersion.of(8)
 
 println('Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getProperty('java.vm.version') + '(' + System.getProperty('java.vendor') + ') Arch: ' + System.getProperty('os.arch'))
 minecraft {
@@ -25,9 +25,11 @@ minecraft {
     runs {
         client {
             workingDirectory project.file('run')
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
             property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
             property 'forge.logging.console.level', 'debug'
-			jvmArg "-Dmixin.env.disableRefMap=true"
+			//jvmArg "-Dmixin.env.disableRefMap=true"
 
             mods {
                 peculiars {
@@ -38,9 +40,11 @@ minecraft {
 
         server {
             workingDirectory project.file('run')
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
             property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
             property 'forge.logging.console.level', 'debug'
-			jvmArg "-Dmixin.env.disableRefMap=true"
+			//jvmArg "-Dmixin.env.disableRefMap=true"
 			
             mods {
                 peculiars {
@@ -51,9 +55,11 @@ minecraft {
 
         data {
             workingDirectory project.file('run')
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
             property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
             property 'forge.logging.console.level', 'debug'
-			jvmArg "-Dmixin.env.disableRefMap=true"
+			//jvmArg "-Dmixin.env.disableRefMap=true"
 			args '--mod', 'peculiars', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
 
             mods {
@@ -73,7 +79,13 @@ dependencies {
     implementation fg.deobf("curse.maven:abnormals-core-382216:${ac_id}")
     implementation fg.deobf("curse.maven:neapolitan-382016:${neapolitan_id}")
     implementation fg.deobf("curse.maven:atmospheric-362393:${atmospheric_id}")
-    implementation fg.deobf("curse.maven:upgrade-aquatic-326895:${ua_id}")
+    //implementation fg.deobf("curse.maven:upgrade-aquatic-326895:${ua_id}")
+
+    runtimeOnly fg.deobf("curse.maven:jei-238222:3530253")
+    runtimeOnly fg.deobf("curse.maven:configured-457570:3546348")
+    runtimeOnly fg.deobf("curse.maven:catalogue-459701:3529457")
+    runtimeOnly fg.deobf("curse.maven:appleskin-248787:3512372")
+
 
 }
 

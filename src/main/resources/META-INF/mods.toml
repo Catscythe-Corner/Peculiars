@@ -1,5 +1,5 @@
 modLoader="javafml"
-loaderVersion="[35,)"
+loaderVersion="[36,)"
 license="All rights reserved"
 
 [[mods]]
@@ -8,13 +8,13 @@ version="${file.jarVersion}" #mandatory
 displayName="Peculiars"
 logoFile="peculiars.png"
 credits="Thanks to Team Abnormals for creating Neapolitan and the MCAbnormals mods."
-authors="cosmicgelatin, Catscythe"
+authors="Uraneptus, EltrutLikes, cosmicgelatin, Catscythe"
 description='''Addon for Neapolitan that adds new foods for all of the flavors in MCAbnormals mods (starting with Atmospheric).'''
 
 [[dependencies.peculiars]]
     modId="forge"
     mandatory=true
-    versionRange="[35,)"
+    versionRange="[36,)"
     ordering="NONE"
     side="BOTH"
 

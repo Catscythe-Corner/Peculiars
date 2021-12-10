@@ -39,17 +39,17 @@ public class PeculiarsItems {
         public static final Food YUCCA_FUDGE = (new Food.Builder()).hunger(3).saturation(1.0F).effect(() -> new EffectInstance(AtmosphericEffects.PERSISTENCE.get(), 160, 1), 1.0F).effect(() -> new EffectInstance(NeapolitanEffects.SUGAR_RUSH.get(), 160, 1), 1.0F).build();
         public static final Food YUCCA_CAKE = (new Food.Builder()).hunger(1).saturation(0.1F).effect(() -> new EffectInstance(AtmosphericEffects.PERSISTENCE.get(), 200), 1.0F).build();
 
-        public static final Food ALOE_ICE_CREAM = (new Food.Builder()).hunger(6).saturation(0.42F).effect(() -> new EffectInstance(Effects.SLOWNESS, 100, 2), 1.0F).effect(() -> new EffectInstance(AtmosphericEffects.GELLED.get(), 800, 2), 1.0F).build();
+        public static final Food ALOE_ICE_CREAM = (new Food.Builder()).hunger(6).saturation(0.42F).effect(() -> new EffectInstance(Effects.SLOWNESS, 100, 2), 1.0F).effect(() -> new EffectInstance(AtmosphericEffects.RELIEF.get(), 800, 2), 1.0F).build();
         public static final Food ALOE_MILKSHAKE = (new Food.Builder()).hunger(3).saturation(0.6F).build();
-        public static final Food ALOE_JELLY_SLICE = (new Food.Builder()).hunger(4).saturation(0.8F).effect(() -> new EffectInstance(AtmosphericEffects.GELLED.get(), 400, 1), 1.0F).build();
-        public static final Food ALOE_BERRY_SMOOTHIE = (new Food.Builder()).hunger(3).saturation(0.6F).effect(() -> new EffectInstance(AtmosphericEffects.GELLED.get(), 600), 1.0F).build();
-        public static final Food ALOE_CAKE = (new Food.Builder()).hunger(1).saturation(0.1F).effect(() -> new EffectInstance(AtmosphericEffects.GELLED.get(), 200), 1.0F).build();
+        public static final Food ALOE_JELLY_SLICE = (new Food.Builder()).hunger(4).saturation(0.8F).effect(() -> new EffectInstance(AtmosphericEffects.RELIEF.get(), 400, 1), 1.0F).build();
+        public static final Food ALOE_BERRY_SMOOTHIE = (new Food.Builder()).hunger(3).saturation(0.6F).effect(() -> new EffectInstance(AtmosphericEffects.RELIEF.get(), 600), 1.0F).build();
+        public static final Food ALOE_CAKE = (new Food.Builder()).hunger(1).saturation(0.1F).effect(() -> new EffectInstance(AtmosphericEffects.RELIEF.get(), 200), 1.0F).build();
 
         public static final Food PASSIONFRUIT_ICE_CREAM = (new Food.Builder()).hunger(6).saturation(0.42F).effect(() -> new EffectInstance(Effects.SLOWNESS, 100, 2), 1.0F).effect(() -> new EffectInstance(AtmosphericEffects.SPITTING.get(), 100, 2), 1.0F).build();
         public static final Food PASSIONFRUIT_MILKSHAKE = (new Food.Builder()).hunger(3).saturation(0.6F).build();
-        public static final Food PASSIONFRUIT_CAKE = (new Food.Builder()).hunger(1).saturation(0.1F).effect(() -> new EffectInstance(AtmosphericEffects.RELIEF.get(), 100), 1.0F).build();
+        public static final Food PASSIONFRUIT_CAKE = (new Food.Builder()).hunger(1).saturation(0.1F).effect(() -> new EffectInstance(AtmosphericEffects.SPITTING.get(), 100), 1.0F).build();
 
-        public static final Food TROPICAL_SALAD = (new Food.Builder()).hunger(6).saturation(1.1F).effect(() -> new EffectInstance(AtmosphericEffects.SPITTING.get(), 100), 1.0F).effect(() -> new EffectInstance(AtmosphericEffects.PERSISTENCE.get(), 200, 1), 1.0F).effect(() -> new EffectInstance(AtmosphericEffects.GELLED.get(), 400, 1), 1.0F).build();
+        public static final Food TROPICAL_SALAD = (new Food.Builder()).hunger(6).saturation(1.1F).effect(() -> new EffectInstance(AtmosphericEffects.SPITTING.get(), 100), 1.0F).effect(() -> new EffectInstance(AtmosphericEffects.PERSISTENCE.get(), 200, 1), 1.0F).effect(() -> new EffectInstance(AtmosphericEffects.RELIEF.get(), 400, 1), 1.0F).build();
 
         public static final Food PASSIONFRUIT_TART = (new Food.Builder()).hunger(4).saturation(0.6F).effect(() -> new EffectInstance(AtmosphericEffects.SPITTING.get(), 100, 0), 1.0F).build();
     }
