@@ -3,22 +3,20 @@ package com.cosmicgelatin.peculiars.common.item;
 import com.cosmicgelatin.peculiars.core.other.PeculiarsEvents;
 import com.cosmicgelatin.peculiars.core.registry.PeculiarsItems;
 import com.google.common.collect.ImmutableList;
-import com.minecraftabnormals.atmospheric.core.registry.AtmosphericEffects;
 import com.minecraftabnormals.neapolitan.common.item.DrinkItem;
 import com.minecraftabnormals.neapolitan.core.registry.NeapolitanEffects;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
-import net.minecraft.item.*;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
+import net.minecraft.item.UseAction;
 import net.minecraft.potion.Effect;
 import net.minecraft.potion.EffectInstance;
-import net.minecraft.potion.Effects;
 import net.minecraft.stats.Stats;
 import net.minecraft.util.*;
 import net.minecraft.world.World;
-
-import java.util.ArrayList;
 
 public class PeculiarsMilkshakeItem extends DrinkItem {
 
@@ -26,31 +24,31 @@ public class PeculiarsMilkshakeItem extends DrinkItem {
         super(builder);
     }
 
-    public ItemStack onItemUseFinish(ItemStack stack, World worldIn, LivingEntity entity) {
+    public ItemStack finishUsingItem(ItemStack stack, World worldIn, LivingEntity entity) {
         this.handleEffects(entity);
-        return super.onItemUseFinish(stack, worldIn, entity);
+        return super.finishUsingItem(stack, worldIn, entity);
     }
 
     public ActionResultType itemInteractionForEntity(ItemStack stack, PlayerEntity player, LivingEntity entity, Hand hand) {
-        if (entity.world.isRemote) {
+        if (entity.level.isClientSide) {
             return ActionResultType.PASS;
         } else {
-            entity.world.playSound((PlayerEntity)null, entity.getPosition(), SoundEvents.ENTITY_WANDERING_TRADER_DRINK_MILK, SoundCategory.NEUTRAL, 1.0F, 1.0F);
+            entity.level.playSound((PlayerEntity)null, entity.blockPosition(), SoundEvents.WANDERING_TRADER_DRINK_MILK, SoundCategory.NEUTRAL, 1.0F, 1.0F);
             if (player instanceof ServerPlayerEntity) {
                 ServerPlayerEntity serverplayerentity = (ServerPlayerEntity)player;
                 CriteriaTriggers.CONSUME_ITEM.trigger(serverplayerentity, stack);
-                serverplayerentity.addStat(Stats.ITEM_USED.get(this));
+                serverplayerentity.awardStat(Stats.ITEM_USED.get(this));
             }
 
-            if (entity.getActivePotionEffect((Effect) NeapolitanEffects.VANILLA_SCENT.get()) == null) {
+            if (entity.getEffect((Effect) NeapolitanEffects.VANILLA_SCENT.get()) == null) {
                 this.handleEffects(entity);
             }
 
-            if (!player.abilities.isCreativeMode) {
+            if (!player.abilities.instabuild) {
                 stack.shrink(1);
                 ItemStack itemstack = new ItemStack(Items.GLASS_BOTTLE);
-                if (!player.inventory.addItemStackToInventory(itemstack)) {
-                    player.dropItem(itemstack, false);
+                if (!player.inventory.add(itemstack)) {
+                    player.drop(itemstack, false);
                 }
             }
 
@@ -59,24 +57,24 @@ public class PeculiarsMilkshakeItem extends DrinkItem {
     }
 
     private void handleEffects(LivingEntity user) {
-        ImmutableList<EffectInstance> effects = ImmutableList.copyOf(user.getActivePotionEffects());
+        ImmutableList<EffectInstance> effects = ImmutableList.copyOf(user.getActiveEffects());
 
         if (!effects.isEmpty()) {
             if (this == PeculiarsItems.ALOE_MILKSHAKE.get()) {
                 for (EffectInstance e : effects) {
-                    user.removePotionEffect(e.getPotion());
+                    user.removeEffect(e.getEffect());
                 }
-                PeculiarsEvents.getAloeShaked().put(user.getUniqueID(), effects);
+                PeculiarsEvents.getAloeShaked().put(user.getUUID(), effects);
             } else if (this == PeculiarsItems.PASSIONFRUIT_MILKSHAKE.get()) {
                 for (EffectInstance e : effects) {
-                    user.removePotionEffect(e.getPotion());
+                    user.removeEffect(e.getEffect());
                 }
-                PeculiarsEvents.getPassionShaked().put(user.getUniqueID(), effects);
+                PeculiarsEvents.getPassionShaked().put(user.getUUID(), effects);
             } else if (this == PeculiarsItems.YUCCA_MILKSHAKE.get()) {
                 for (EffectInstance e : effects) {
-                    user.removePotionEffect(e.getPotion());
+                    user.removeEffect(e.getEffect());
                 }
-                PeculiarsEvents.getYuccaShaked().put(user.getUniqueID(), effects);
+                PeculiarsEvents.getYuccaShaked().put(user.getUUID(), effects);
             }
         }
         /**ArrayList<EffectInstance> newEffects = new ArrayList<EffectInstance>();
@@ -168,10 +166,10 @@ public class PeculiarsMilkshakeItem extends DrinkItem {
     }
 
     public SoundEvent getDrinkSound() {
-        return SoundEvents.ITEM_HONEY_BOTTLE_DRINK;
+        return SoundEvents.HONEY_DRINK;
     }
 
     public SoundEvent getEatSound() {
-        return SoundEvents.ITEM_HONEY_BOTTLE_DRINK;
+        return SoundEvents.HONEY_DRINK;
     }
 }

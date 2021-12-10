@@ -14,8 +14,8 @@ import net.minecraftforge.event.entity.living.LivingDamageEvent;
 import net.minecraftforge.event.entity.living.LivingEntityUseItemEvent;
 import net.minecraftforge.event.village.VillagerTradesEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
+
 import java.util.HashMap;
 import java.util.UUID;
 
@@ -29,28 +29,28 @@ public class PeculiarsEvents {
     public static void onEntityAttacked(LivingDamageEvent event) {
         LivingEntity entity = event.getEntityLiving();
 
-        if (Peculiars.ATMOSPHERIC && event.getSource().getImmediateSource() instanceof LivingEntity) {
-            LivingEntity source = (LivingEntity)event.getSource().getImmediateSource();
-            if (yuccaShaked.containsKey(entity.getUniqueID())) {
-                ImmutableList<EffectInstance> effects = yuccaShaked.get(entity.getUniqueID());
+        if (Peculiars.ATMOSPHERIC && event.getSource().getDirectEntity() instanceof LivingEntity) {
+            LivingEntity source = (LivingEntity)event.getSource().getDirectEntity();
+            if (yuccaShaked.containsKey(entity.getUUID())) {
+                ImmutableList<EffectInstance> effects = yuccaShaked.get(entity.getUUID());
                 for (EffectInstance e : effects) {
-                    source.addPotionEffect(e);
+                    source.addEffect(e);
                 }
-                yuccaShaked.remove(entity.getUniqueID());
+                yuccaShaked.remove(entity.getUUID());
             }
-            if (aloeShaked.containsKey(entity.getUniqueID())) {
-                ImmutableList<EffectInstance> effects = aloeShaked.get(entity.getUniqueID());
+            if (aloeShaked.containsKey(entity.getUUID())) {
+                ImmutableList<EffectInstance> effects = aloeShaked.get(entity.getUUID());
                 for (EffectInstance e : effects) {
-                    entity.addPotionEffect(e);
+                    entity.addEffect(e);
                 }
-                aloeShaked.remove(entity.getUniqueID());
+                aloeShaked.remove(entity.getUUID());
             }
-            if (passionShaked.containsKey(source.getUniqueID())) {
-                ImmutableList<EffectInstance> effects = passionShaked.get(source.getUniqueID());
+            if (passionShaked.containsKey(source.getUUID())) {
+                ImmutableList<EffectInstance> effects = passionShaked.get(source.getUUID());
                 for (EffectInstance e : effects) {
-                    entity.addPotionEffect(e);
+                    entity.addEffect(e);
                 }
-                passionShaked.remove(source.getUniqueID());
+                passionShaked.remove(source.getUUID());
             }
         }
     }
@@ -58,7 +58,7 @@ public class PeculiarsEvents {
     @SubscribeEvent
     public static void onTartEaten(LivingEntityUseItemEvent.Finish event) {
         if (Peculiars.ATMOSPHERIC && event.getItem().getItem() == AtmosphericItems.PASSIONFRUIT_TART.get() && PeculiarsConfig.COMMON.tartSpitting.get())
-        {event.getEntityLiving().addPotionEffect(new EffectInstance(AtmosphericEffects.SPITTING.get(), 100));}
+        {event.getEntityLiving().addEffect(new EffectInstance(AtmosphericEffects.SPITTING.get(), 100));}
     }
 
     public static HashMap<UUID, ImmutableList<EffectInstance>> getYuccaShaked() {
