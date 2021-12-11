@@ -29,7 +29,7 @@ public class PeculiarsMilkshakeItem extends DrinkItem {
         return super.finishUsingItem(stack, worldIn, entity);
     }
 
-    public ActionResultType itemInteractionForEntity(ItemStack stack, PlayerEntity player, LivingEntity entity, Hand hand) {
+    public ActionResultType interactLivingEntity(ItemStack stack, PlayerEntity player, LivingEntity entity, Hand hand) {
         if (entity.level.isClientSide) {
             return ActionResultType.PASS;
         } else {
@@ -161,15 +161,15 @@ public class PeculiarsMilkshakeItem extends DrinkItem {
         return 40;
     }
 
-    public UseAction getUseAction(ItemStack stack) {
+    public UseAction getUseAnimation(ItemStack stack) {
         return UseAction.DRINK;
     }
 
-    public SoundEvent getDrinkSound() {
+    public SoundEvent getDrinkingSound() {
         return SoundEvents.HONEY_DRINK;
     }
 
-    public SoundEvent getEatSound() {
+    public SoundEvent getEatingSound() {
         return SoundEvents.HONEY_DRINK;
     }
 }

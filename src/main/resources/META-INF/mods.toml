@@ -21,14 +21,14 @@ description='''Addon for Neapolitan that adds new foods for all of the flavors i
 [[dependencies.peculiars]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.16.3,)"
+    versionRange="[1.16.5,)"
     ordering="NONE"
     side="BOTH"
 
 [[dependencies.peculiars]]
     modId="neapolitan"
     mandatory=true
-    versionRange="[2.0.1,)"
+    versionRange="[2.2.0,)"
     ordering="NONE"
     side="BOTH"
 
