@@ -27,3 +27,4 @@ forge*changelog.txt
 /run/
 /.apt_generated/
 /Users/
+src/generated/resources/.cache

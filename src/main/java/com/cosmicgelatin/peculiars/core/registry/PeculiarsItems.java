@@ -2,16 +2,16 @@ package com.cosmicgelatin.peculiars.core.registry;
 
 import com.cosmicgelatin.peculiars.common.item.PeculiarsMilkshakeItem;
 import com.cosmicgelatin.peculiars.core.Peculiars;
-import com.teamabnormals.blueprint.core.util.registry.ItemSubRegistryHelper;
 import com.teamabnormals.atmospheric.core.registry.AtmosphericMobEffects;
+import com.teamabnormals.blueprint.core.util.registry.ItemSubRegistryHelper;
 import com.teamabnormals.neapolitan.common.item.HealingDrinkItem;
 import com.teamabnormals.neapolitan.core.registry.NeapolitanMobEffects;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
-import net.minecraftforge.registries.RegistryObject;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.registries.RegistryObject;
 
 @Mod.EventBusSubscriber(modid = Peculiars.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class PeculiarsItems {

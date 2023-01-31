@@ -25,13 +25,13 @@ public class PeculiarsBlocks {
     public static final RegistryObject<Block> PASSIONFRUIT_CAKE = ATMOSPHERIC.createBlockNoItem("passionfruit_cake", () -> new FlavoredCakeBlock(PeculiarsItems.Foods.PASSIONFRUIT_CAKE, Properties.PASSIONFRUIT_CAKE));
 
     static class Properties {
-        public static final Block.Properties YUCCA_ICE_CREAM_BLOCK = Block.Properties.of(Material.SNOW, MaterialColor.COLOR_LIGHT_GREEN).requiresCorrectToolForDrops().strength(0.2F).sound(SoundType.SNOW); //SHOVEL
+        public static final Block.Properties YUCCA_ICE_CREAM_BLOCK = Block.Properties.of(Material.SNOW, MaterialColor.COLOR_LIGHT_GREEN).requiresCorrectToolForDrops().strength(0.2F).sound(SoundType.SNOW);
         public static final Block.Properties YUCCA_CAKE = Block.Properties.of(Material.CAKE, MaterialColor.COLOR_LIGHT_GREEN).strength(0.5F).sound(SoundType.WOOL);
 
-        public static final Block.Properties ALOE_ICE_CREAM_BLOCK = Block.Properties.of(Material.SNOW, MaterialColor.COLOR_LIGHT_GREEN).requiresCorrectToolForDrops().strength(0.2F).sound(SoundType.SNOW); //SHOVEL
+        public static final Block.Properties ALOE_ICE_CREAM_BLOCK = Block.Properties.of(Material.SNOW, MaterialColor.COLOR_LIGHT_GREEN).requiresCorrectToolForDrops().strength(0.2F).sound(SoundType.SNOW);
         public static final Block.Properties ALOE_CAKE = Block.Properties.of(Material.CAKE, MaterialColor.COLOR_LIGHT_GREEN).strength(0.5F).sound(SoundType.WOOL);
 
-        public static final Block.Properties PASSIONFRUIT_ICE_CREAM_BLOCK = Block.Properties.of(Material.SNOW, MaterialColor.COLOR_YELLOW).requiresCorrectToolForDrops().strength(0.2F).sound(SoundType.SNOW); //SHOVEL
+        public static final Block.Properties PASSIONFRUIT_ICE_CREAM_BLOCK = Block.Properties.of(Material.SNOW, MaterialColor.COLOR_YELLOW).requiresCorrectToolForDrops().strength(0.2F).sound(SoundType.SNOW);
         public static final Block.Properties PASSIONFRUIT_CAKE = Block.Properties.of(Material.CAKE, MaterialColor.COLOR_YELLOW).strength(0.5F).sound(SoundType.WOOL);
     }
 }
