@@ -3,20 +3,24 @@ package com.cosmicgelatin.peculiars.common.item;
 import com.cosmicgelatin.peculiars.core.other.PeculiarsEvents;
 import com.cosmicgelatin.peculiars.core.registry.PeculiarsItems;
 import com.google.common.collect.ImmutableList;
-import com.minecraftabnormals.neapolitan.common.item.DrinkItem;
-import com.minecraftabnormals.neapolitan.core.registry.NeapolitanEffects;
+import com.teamabnormals.neapolitan.common.item.DrinkItem;
+import com.teamabnormals.neapolitan.core.registry.NeapolitanMobEffects;
 import net.minecraft.advancements.CriteriaTriggers;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.player.ServerPlayerEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
-import net.minecraft.item.UseAction;
-import net.minecraft.potion.Effect;
-import net.minecraft.potion.EffectInstance;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
-import net.minecraft.util.*;
-import net.minecraft.world.World;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.UseAnim;
+import net.minecraft.world.level.Level;
 
 public class PeculiarsMilkshakeItem extends DrinkItem {
 
@@ -24,54 +28,54 @@ public class PeculiarsMilkshakeItem extends DrinkItem {
         super(builder);
     }
 
-    public ItemStack finishUsingItem(ItemStack stack, World worldIn, LivingEntity entity) {
+    public ItemStack finishUsingItem(ItemStack stack, Level worldIn, LivingEntity entity) {
         this.handleEffects(entity);
         return super.finishUsingItem(stack, worldIn, entity);
     }
 
-    public ActionResultType interactLivingEntity(ItemStack stack, PlayerEntity player, LivingEntity entity, Hand hand) {
+    @Override
+    public InteractionResult interactLivingEntity(ItemStack stack, Player player, LivingEntity entity, InteractionHand hand) {
         if (entity.level.isClientSide) {
-            return ActionResultType.PASS;
+            return InteractionResult.PASS;
         } else {
-            entity.level.playSound((PlayerEntity)null, entity.blockPosition(), SoundEvents.WANDERING_TRADER_DRINK_MILK, SoundCategory.NEUTRAL, 1.0F, 1.0F);
-            if (player instanceof ServerPlayerEntity) {
-                ServerPlayerEntity serverplayerentity = (ServerPlayerEntity)player;
-                CriteriaTriggers.CONSUME_ITEM.trigger(serverplayerentity, stack);
-                serverplayerentity.awardStat(Stats.ITEM_USED.get(this));
+            entity.level.playSound((Player) null, entity.blockPosition(), SoundEvents.WANDERING_TRADER_DRINK_MILK, SoundSource.NEUTRAL, 1.0F, 1.0F);
+            if (player instanceof ServerPlayer serverPlayer) {
+                CriteriaTriggers.CONSUME_ITEM.trigger(serverPlayer, stack);
+                serverPlayer.awardStat(Stats.ITEM_USED.get(this));
             }
 
-            if (entity.getEffect((Effect) NeapolitanEffects.VANILLA_SCENT.get()) == null) {
+            if (entity.getEffect(NeapolitanMobEffects.VANILLA_SCENT.get()) == null) {
                 this.handleEffects(entity);
             }
 
-            if (!player.abilities.instabuild) {
+            if (!player.getAbilities().instabuild) {
                 stack.shrink(1);
                 ItemStack itemstack = new ItemStack(Items.GLASS_BOTTLE);
-                if (!player.inventory.add(itemstack)) {
+                if (!player.getInventory().add(itemstack)) {
                     player.drop(itemstack, false);
                 }
             }
 
-            return ActionResultType.SUCCESS;
+            return InteractionResult.SUCCESS;
         }
     }
 
     private void handleEffects(LivingEntity user) {
-        ImmutableList<EffectInstance> effects = ImmutableList.copyOf(user.getActiveEffects());
+        ImmutableList<MobEffectInstance> effects = ImmutableList.copyOf(user.getActiveEffects());
 
         if (!effects.isEmpty()) {
             if (this == PeculiarsItems.ALOE_MILKSHAKE.get()) {
-                for (EffectInstance e : effects) {
+                for (MobEffectInstance e : effects) {
                     user.removeEffect(e.getEffect());
                 }
                 PeculiarsEvents.getAloeShaked().put(user.getUUID(), effects);
             } else if (this == PeculiarsItems.PASSIONFRUIT_MILKSHAKE.get()) {
-                for (EffectInstance e : effects) {
+                for (MobEffectInstance e : effects) {
                     user.removeEffect(e.getEffect());
                 }
                 PeculiarsEvents.getPassionShaked().put(user.getUUID(), effects);
             } else if (this == PeculiarsItems.YUCCA_MILKSHAKE.get()) {
-                for (EffectInstance e : effects) {
+                for (MobEffectInstance e : effects) {
                     user.removeEffect(e.getEffect());
                 }
                 PeculiarsEvents.getYuccaShaked().put(user.getUUID(), effects);
@@ -161,8 +165,8 @@ public class PeculiarsMilkshakeItem extends DrinkItem {
         return 40;
     }
 
-    public UseAction getUseAnimation(ItemStack stack) {
-        return UseAction.DRINK;
+    public UseAnim getUseAnimation(ItemStack stack) {
+        return UseAnim.DRINK;
     }
 
     public SoundEvent getDrinkingSound() {

@@ -1,33 +1,42 @@
 buildscript {
     repositories {
-        maven { url = 'https://files.minecraftforge.net/maven' }
+        maven { url = 'https://maven.minecraftforge.net' }
         mavenCentral()
+        maven { url = 'https://maven.parchmentmc.org' }
     }
     dependencies {
         classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
+        classpath 'org.parchmentmc:librarian:1.+'
     }
 }
 
+plugins {
+    id 'eclipse'
+    id 'maven-publish'
+}
 apply plugin: 'net.minecraftforge.gradle'
-apply plugin: 'eclipse'
-apply plugin: 'maven-publish'
+apply plugin: 'org.parchmentmc.librarian.forgegradle'
+
 
 version = "${mc_version}-${mod_version}"
 group = 'com.cosmicgelatin'
-archivesBaseName = 'peculiars'
+archivesBaseName = "${mod_id}"
 
-java.toolchain.languageVersion = JavaLanguageVersion.of(8)
+java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
-println('Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getProperty('java.vm.version') + '(' + System.getProperty('java.vendor') + ') Arch: ' + System.getProperty('os.arch'))
+println "Java: ${System.getProperty 'java.version'}, JVM: ${System.getProperty 'java.vm.version'} (${System.getProperty 'java.vendor'}), Arch: ${System.getProperty 'os.arch'}"
 minecraft {
-    mappings channel: "${project.mappingsChannel}", version: "${project.mappings}"
+
+    mappings channel: 'parchment', version: '2022.11.06-1.18.2'
 
     runs {
         client {
             workingDirectory project.file('run')
-            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
+            property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
-			jvmArg "-Dmixin.env.disableRefMap=true"
+            property 'forge.enabledGameTestNamespaces', "${mod_id}"
 
             mods {
                 peculiars {
@@ -38,9 +47,26 @@ minecraft {
 
         server {
             workingDirectory project.file('run')
-            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
+            property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
-			jvmArg "-Dmixin.env.disableRefMap=true"
+            property 'forge.enabledGameTestNamespaces', "${mod_id}"
+
+            mods {
+                peculiars {
+                    source sourceSets.main
+                }
+            }
+        }
+
+        gameTestServer {
+            workingDirectory project.file('run')
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
+            property 'forge.logging.markers', 'REGISTRIES'
+            property 'forge.logging.console.level', 'debug'
+            property 'forge.enabledGameTestNamespaces', "${mod_id}"
 
             mods {
                 peculiars {
@@ -51,10 +77,12 @@ minecraft {
 
         data {
             workingDirectory project.file('run')
-            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
+            property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
-			jvmArg "-Dmixin.env.disableRefMap=true"
-			args '--mod', 'peculiars', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
+
+            args '--mod', "${mod_id}", '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/'), '--existing-mod', "${neapolitan_id}"
 
             mods {
                 peculiars {
@@ -67,38 +95,34 @@ minecraft {
 
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
-dependencies {
-    minecraft "net.minecraftforge:forge:${mc_version}-${forge_version}"
-
-    implementation fg.deobf("curse.maven:abnormals-core-382216:${ac_id}")
-    implementation fg.deobf("curse.maven:neapolitan-382016:${neapolitan_id}")
-    implementation fg.deobf("curse.maven:atmospheric-362393:${atmospheric_id}")
-    //implementation fg.deobf("curse.maven:upgrade-aquatic-326895:${ua_id}")
-
-    runtimeOnly fg.deobf("curse.maven:jei-238222:3530253")
-    runtimeOnly fg.deobf("curse.maven:configured-457570:3546348")
-    runtimeOnly fg.deobf("curse.maven:catalogue-459701:3529457")
-    runtimeOnly fg.deobf("curse.maven:appleskin-248787:3512372")
-
-
-}
-
 repositories {
     maven {
         url "https://www.cursemaven.com"
     }
+    maven {
+        url = "https://maven.jaackson.me"
+    }
+}
+
+dependencies {
+    minecraft "net.minecraftforge:forge:${mc_version}-${forge_version}"
+
+    implementation fg.deobf("com.teamabnormals:blueprint:${mc_version}-${blueprint}")
+    implementation fg.deobf("curse.maven:neapolitan-382016:${neapolitan_id}")
+    implementation fg.deobf("curse.maven:atmospheric-362393:${atmospheric_id}")
+
 }
 
 jar {
     manifest {
         attributes([
-            "Specification-Title": "peculiars",
-            "Specification-Vendor": "Catscythe's Corner",
-            "Specification-Version": "1",
-            "Implementation-Title": project.name,
-            "Implementation-Version": "${version}",
-            "Implementation-Vendor" :"Catscythe's Corner",
-            "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
+                "Specification-Title"     : "${mod_id}",
+                "Specification-Vendor"    : "Catscythe's Corner",
+                "Specification-Version"   : "1", // We are version 1 of ourselves
+                "Implementation-Title"    : project.name,
+                "Implementation-Version"  : project.jar.archiveVersion,
+                "Implementation-Vendor"   : "examplemodsareus",
+                "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
         ])
     }
 }
@@ -113,7 +137,11 @@ publishing {
     }
     repositories {
         maven {
-            url "file:///${project.projectDir}/mcmodsrepo"
+            url "file://${project.projectDir}/mcmodsrepo"
         }
     }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
 }

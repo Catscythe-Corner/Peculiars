@@ -1,7 +1,7 @@
 package com.cosmicgelatin.peculiars.core.other;
 
 import com.cosmicgelatin.peculiars.core.registry.PeculiarsItems;
-import com.minecraftabnormals.abnormals_core.core.util.DataUtil;
+import com.teamabnormals.blueprint.core.util.DataUtil;
 
 public class PeculiarsCompat {
 
