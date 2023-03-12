@@ -27,7 +27,7 @@ public class PeculiarsEvents {
 
     @SubscribeEvent
     public static void onEntityAttacked(LivingDamageEvent event) {
-        LivingEntity entity = event.getEntityLiving();
+        LivingEntity entity = event.getEntity();
 
         if (Peculiars.ATMOSPHERIC && event.getSource().getDirectEntity() instanceof LivingEntity) {
             LivingEntity source = (LivingEntity)event.getSource().getDirectEntity();
@@ -58,7 +58,7 @@ public class PeculiarsEvents {
     @SubscribeEvent
     public static void onTartEaten(LivingEntityUseItemEvent.Finish event) {
         if (Peculiars.ATMOSPHERIC && event.getItem().getItem() == AtmosphericItems.PASSIONFRUIT_TART.get() && PeculiarsConfig.COMMON.tartSpitting.get())
-        {event.getEntityLiving().addEffect(new MobEffectInstance(AtmosphericMobEffects.SPITTING.get(), 100));}
+        {event.getEntity().addEffect(new MobEffectInstance(AtmosphericMobEffects.SPITTING.get(), 100));}
     }
 
     public static HashMap<UUID, ImmutableList<MobEffectInstance>> getYuccaShaked() {

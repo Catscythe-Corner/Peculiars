@@ -1,5 +1,5 @@
 modLoader="javafml"
-loaderVersion="[40,)"
+loaderVersion="[43,)"
 license="All rights reserved"
 
 [[mods]]
@@ -14,27 +14,34 @@ description='''Addon for Neapolitan that adds new foods for all of the flavors i
 [[dependencies.peculiars]]
     modId="forge"
     mandatory=true
-    versionRange="[40,)"
+    versionRange="[43,)"
     ordering="NONE"
     side="BOTH"
 
 [[dependencies.peculiars]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.18.2,)"
+    versionRange="[1.19.2,)"
     ordering="NONE"
     side="BOTH"
 
 [[dependencies.peculiars]]
     modId="neapolitan"
     mandatory=true
-    versionRange="[3.0.0,)"
+    versionRange="[4.0.2,)"
     ordering="NONE"
     side="BOTH"
 
 [[dependencies.peculiars]]
     modId="blueprint"
     mandatory=true
-    versionRange="[5.5.0,)"
+    versionRange="[6.1.1,)"
+    ordering="AFTER"
+    side="BOTH"
+
+[[dependencies.peculiars]]
+    modId="atmospheric"
+    mandatory=false
+    versionRange="[5.0.0,)"
     ordering="AFTER"
     side="BOTH"
