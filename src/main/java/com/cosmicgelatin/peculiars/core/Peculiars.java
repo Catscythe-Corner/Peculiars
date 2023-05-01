@@ -1,15 +1,15 @@
 package com.cosmicgelatin.peculiars.core;
 
+import com.cosmicgelatin.peculiars.core.data.server.modifier.PeculiarsAdvancementModifierProvider;
 import com.cosmicgelatin.peculiars.core.data.server.tags.PeculiarsBlockTagsProvider;
 import com.cosmicgelatin.peculiars.core.other.PeculiarsCompat;
 import com.cosmicgelatin.peculiars.core.registry.PeculiarsLootConditions;
-import com.teamabnormals.blueprint.core.util.DataUtil;
 import com.teamabnormals.blueprint.core.util.registry.RegistryHelper;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
@@ -18,7 +18,6 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.data.event.GatherDataEvent;
 
 @Mod(Peculiars.MODID)
 @Mod.EventBusSubscriber(modid = Peculiars.MODID)
@@ -61,5 +60,6 @@ public class Peculiars {
         ExistingFileHelper fileHelper = event.getExistingFileHelper();
 
         generator.addProvider(includeServer, new PeculiarsBlockTagsProvider(generator, fileHelper));
+        generator.addProvider(includeServer, new PeculiarsAdvancementModifierProvider(generator));
     }
 }
