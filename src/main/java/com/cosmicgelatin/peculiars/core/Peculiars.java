@@ -1,7 +1,10 @@
 package com.cosmicgelatin.peculiars.core;
 
+import com.cosmicgelatin.peculiars.core.data.client.PeculiarsBlockStateProvider;
 import com.cosmicgelatin.peculiars.core.data.server.modifier.PeculiarsAdvancementModifierProvider;
 import com.cosmicgelatin.peculiars.core.data.server.tags.PeculiarsBlockTagsProvider;
+import com.cosmicgelatin.peculiars.core.data.server.tags.PeculiarsItemTagsProvider;
+import com.cosmicgelatin.peculiars.core.other.PeculiarsCauldronInteractions;
 import com.cosmicgelatin.peculiars.core.other.PeculiarsCompat;
 import com.cosmicgelatin.peculiars.core.registry.PeculiarsLootConditions;
 import com.teamabnormals.blueprint.core.util.registry.RegistryHelper;
@@ -48,6 +51,7 @@ public class Peculiars {
         event.enqueueWork(() -> {
             if (ATMOSPHERIC) {
                 PeculiarsCompat.registerCompostables();
+                PeculiarsCauldronInteractions.registerCauldronInteractions();
             }
         });
     }
@@ -59,7 +63,11 @@ public class Peculiars {
         DataGenerator generator = event.getGenerator();
         ExistingFileHelper fileHelper = event.getExistingFileHelper();
 
-        generator.addProvider(includeServer, new PeculiarsBlockTagsProvider(generator, fileHelper));
+        generator.addProvider(includeClient, new PeculiarsBlockStateProvider(generator, fileHelper));
+
+        PeculiarsBlockTagsProvider blockTagsProvider = new PeculiarsBlockTagsProvider(generator, fileHelper);
+        generator.addProvider(includeServer, blockTagsProvider);
+        generator.addProvider(includeServer, new PeculiarsItemTagsProvider(generator, blockTagsProvider, fileHelper));
         generator.addProvider(includeServer, new PeculiarsAdvancementModifierProvider(generator));
     }
 }

@@ -1,0 +1,11 @@
+{
+  "parent": "minecraft:block/template_cauldron_level2",
+  "textures": {
+    "bottom": "minecraft:block/cauldron_bottom",
+    "content": "peculiars:block/yucca/yucca_milkshake_cauldron_content",
+    "inside": "minecraft:block/cauldron_side",
+    "particle": "minecraft:block/cauldron_inner",
+    "side": "minecraft:block/cauldron_side",
+    "top": "minecraft:block/cauldron_top"
+  }
+}

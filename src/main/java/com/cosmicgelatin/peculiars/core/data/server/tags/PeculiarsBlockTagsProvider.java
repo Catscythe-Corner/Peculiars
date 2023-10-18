@@ -22,5 +22,10 @@ public class PeculiarsBlockTagsProvider extends BlockTagsProvider {
                 PeculiarsBlocks.PASSIONFRUIT_ICE_CREAM_BLOCK.get(),
                 PeculiarsBlocks.YUCCA_ICE_CREAM_BLOCK.get()
         );
+        tag(BlockTags.CAULDRONS).add(
+                PeculiarsBlocks.YUCCA_MILKSHAKE_CAULDRON.get(),
+                PeculiarsBlocks.ALOE_MILKSHAKE_CAULDRON.get(),
+                PeculiarsBlocks.PASSIONFRUIT_MILKSHAKE_CAULDRON.get()
+        );
     }
 }

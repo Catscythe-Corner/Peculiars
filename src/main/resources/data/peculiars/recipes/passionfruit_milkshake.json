@@ -11,10 +11,7 @@
       "item": "minecraft:glass_bottle"
     },
     {
-      "item": "atmospheric:passionfruit"
-    },
-    {
-      "item": "neapolitan:vanilla_ice_cream"
+      "item": "peculiars:passionfruit_ice_cream"
     },
     {
       "tag": "forge:milk"

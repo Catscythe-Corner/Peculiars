@@ -11,10 +11,7 @@
       "item": "minecraft:glass_bottle"
     },
     {
-      "item": "atmospheric:yucca_fruit"
-    },
-    {
-      "item": "neapolitan:vanilla_ice_cream"
+      "item": "peculiars:yucca_ice_cream"
     },
     {
       "tag": "forge:milk"

@@ -11,10 +11,7 @@
       "item": "minecraft:glass_bottle"
     },
     {
-      "item": "atmospheric:aloe_leaves"
-    },
-    {
-      "item": "neapolitan:vanilla_ice_cream"
+      "item": "peculiars:aloe_ice_cream"
     },
     {
       "tag": "forge:milk"

@@ -1,8 +1,10 @@
 package com.cosmicgelatin.peculiars.core.registry;
 
 import com.cosmicgelatin.peculiars.core.Peculiars;
+import com.cosmicgelatin.peculiars.core.other.PeculiarsCauldronInteractions;
 import com.teamabnormals.blueprint.core.util.registry.BlockSubRegistryHelper;
 import com.teamabnormals.neapolitan.common.block.FlavoredCakeBlock;
+import com.teamabnormals.neapolitan.common.block.MilkshakeCauldronBlock;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
@@ -15,12 +17,15 @@ import net.minecraftforge.registries.RegistryObject;
 public class PeculiarsBlocks {
     public static final BlockSubRegistryHelper HELPER = Peculiars.REGISTRY_HELPER.getBlockSubHelper();
 
+    public static final RegistryObject<Block> YUCCA_MILKSHAKE_CAULDRON = HELPER.createBlockNoItem("yucca_milkshake_cauldron", () -> new MilkshakeCauldronBlock(PeculiarsCauldronInteractions.YUCCA_MILKSHAKE.map()));
     public static final RegistryObject<Block> YUCCA_ICE_CREAM_BLOCK = HELPER.createBlock("yucca_ice_cream_block", () -> new Block(Properties.YUCCA_ICE_CREAM_BLOCK), CreativeModeTab.TAB_BUILDING_BLOCKS);
     public static final RegistryObject<Block> YUCCA_CAKE = HELPER.createBlockNoItem("yucca_cake", () -> new FlavoredCakeBlock(PeculiarsItems.Foods.YUCCA_CAKE, Properties.YUCCA_CAKE));
 
+    public static final RegistryObject<Block> ALOE_MILKSHAKE_CAULDRON = HELPER.createBlockNoItem("aloe_milkshake_cauldron", () -> new MilkshakeCauldronBlock(PeculiarsCauldronInteractions.ALOE_MILKSHAKE.map()));
     public static final RegistryObject<Block> ALOE_ICE_CREAM_BLOCK = HELPER.createBlock("aloe_ice_cream_block", () -> new Block(Properties.ALOE_ICE_CREAM_BLOCK), CreativeModeTab.TAB_BUILDING_BLOCKS);
     public static final RegistryObject<Block> ALOE_CAKE = HELPER.createBlockNoItem("aloe_cake", () -> new FlavoredCakeBlock(PeculiarsItems.Foods.ALOE_CAKE, Properties.ALOE_CAKE));
 
+    public static final RegistryObject<Block> PASSIONFRUIT_MILKSHAKE_CAULDRON = HELPER.createBlockNoItem("passionfruit_milkshake_cauldron", () -> new MilkshakeCauldronBlock(PeculiarsCauldronInteractions.PASSIONFRUIT_MILKSHAKE.map()));
     public static final RegistryObject<Block> PASSIONFRUIT_ICE_CREAM_BLOCK = HELPER.createBlock("passionfruit_ice_cream_block", () -> new Block(Properties.PASSIONFRUIT_ICE_CREAM_BLOCK), CreativeModeTab.TAB_BUILDING_BLOCKS);
     public static final RegistryObject<Block> PASSIONFRUIT_CAKE = HELPER.createBlockNoItem("passionfruit_cake", () -> new FlavoredCakeBlock(PeculiarsItems.Foods.PASSIONFRUIT_CAKE, Properties.PASSIONFRUIT_CAKE));
 
