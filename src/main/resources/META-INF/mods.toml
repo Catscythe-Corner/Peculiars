@@ -42,6 +42,6 @@ description='''Addon for Neapolitan that adds new foods for all of the flavors i
 [[dependencies.peculiars]]
     modId="atmospheric"
     mandatory=false
-    versionRange="[5.0.0,)"
+    versionRange="[5.1.0,)"
     ordering="AFTER"
     side="BOTH"

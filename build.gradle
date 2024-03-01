@@ -109,7 +109,6 @@ dependencies {
     implementation fg.deobf("com.teamabnormals:blueprint:${mc_version}-${blueprint}")
     implementation fg.deobf("curse.maven:neapolitan-382016:${neapolitan_id}")
     implementation fg.deobf("curse.maven:atmospheric-362393:${atmospheric_id}")
-
 }
 
 jar {

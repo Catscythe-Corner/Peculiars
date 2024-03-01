@@ -29,8 +29,7 @@ public class PeculiarsEvents {
     public static void onEntityAttacked(LivingDamageEvent event) {
         LivingEntity entity = event.getEntity();
 
-        if (Peculiars.ATMOSPHERIC && event.getSource().getDirectEntity() instanceof LivingEntity) {
-            LivingEntity source = (LivingEntity)event.getSource().getDirectEntity();
+        if (Peculiars.ATMOSPHERIC && event.getSource().getDirectEntity() instanceof LivingEntity source) {
             if (yuccaShaked.containsKey(entity.getUUID())) {
                 ImmutableList<MobEffectInstance> effects = yuccaShaked.get(entity.getUUID());
                 for (MobEffectInstance e : effects) {

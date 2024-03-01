@@ -1,13 +1,10 @@
 package com.cosmicgelatin.peculiars.core.data;
 
 import com.cosmicgelatin.peculiars.core.Peculiars;
-import com.google.common.collect.Maps;
-import com.teamabnormals.blueprint.core.api.conditions.ConfigValueCondition;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.client.model.generators.ModelProvider;
-import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.registries.ForgeRegistries;
 
 /**
