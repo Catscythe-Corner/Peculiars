@@ -57,7 +57,7 @@ public class PeculiarsEvents {
 
     @SubscribeEvent
     public static void onTartEaten(LivingEntityUseItemEvent.Finish event) {
-        if (Peculiars.ATMOSPHERIC && event.getItem().getItem() == AtmosphericItems.PASSIONFRUIT_TART.get() && PeculiarsConfig.COMMON.tartSpitting.get())
+        if (Peculiars.ATMOSPHERIC && event.getItem().getItem() == AtmosphericItems.PASSION_FRUIT_TART.get() && PeculiarsConfig.COMMON.tartSpitting.get())
         {event.getEntity().addEffect(new MobEffectInstance(AtmosphericMobEffects.SPITTING.get(), 100));}
     }
 
