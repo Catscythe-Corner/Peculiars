@@ -1,0 +1,24 @@
+{
+  "item.peculiars.yucca_ice_cream": "ユッカアイスクリーム",
+  "item.peculiars.yucca_milkshake": "ユッカミルクシェイク",
+  "item.peculiars.yucca_fudge": "ユッカファッジ",
+
+  "item.peculiars.aloe_ice_cream": "アロエアイスクリーム",
+  "item.peculiars.aloe_milkshake": "アロエミルクシェイク",
+  "item.peculiars.aloe_jelly_slice": "アロエゼリー",
+  "item.peculiars.aloe_berry_smoothie": "アロエベリースムージー",
+
+  "item.peculiars.passion_fruit_ice_cream": "パッションアイスクリーム",
+  "item.peculiars.passion_fruit_milkshake": "パッションミルクシェイク",
+
+  "item.peculiars.tropical_salad": "トロピカルサラダ",
+
+  "block.peculiars.yucca_cake": "ユッカケーキ",
+  "block.peculiars.yucca_ice_cream_block": "ユッカアイスクリームブロック",
+
+  "block.peculiars.aloe_cake": "アロエケーキ",
+  "block.peculiars.aloe_ice_cream_block": "アロエアイスクリームブロック",
+
+  "block.peculiars.passion_fruit_cake": "パッションケーキ",
+  "block.peculiars.passion_fruit_ice_cream_block": "パッションアイスクリームブロック"
+}
