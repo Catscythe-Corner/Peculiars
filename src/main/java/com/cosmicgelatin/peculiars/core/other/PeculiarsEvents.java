@@ -83,7 +83,7 @@ public class PeculiarsEvents {
                 TradeUtil.addVillagerTrades(event, TradeUtil.EXPERT,
                         new TradeUtil.BlueprintTrade(3, PeculiarsItems.ALOE_CAKE.get(), 1, 12, 15));
                 TradeUtil.addVillagerTrades(event, TradeUtil.EXPERT,
-                        new TradeUtil.BlueprintTrade(3, PeculiarsItems.PASSIONFRUIT_CAKE.get(), 1, 12, 15));
+                        new TradeUtil.BlueprintTrade(3, PeculiarsItems.PASSION_FRUIT_CAKE.get(), 1, 12, 15));
             }
         }
     }

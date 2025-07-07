@@ -11,6 +11,6 @@ public class PeculiarsCompat {
 
         DataUtil.registerCompostable(PeculiarsItems.YUCCA_CAKE.get(), 1.0F);
         DataUtil.registerCompostable(PeculiarsItems.ALOE_CAKE.get(), 1.0F);
-        DataUtil.registerCompostable(PeculiarsItems.PASSIONFRUIT_CAKE.get(), 1.0F);
+        DataUtil.registerCompostable(PeculiarsItems.PASSION_FRUIT_CAKE.get(), 1.0F);
     }
 }

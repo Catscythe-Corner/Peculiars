@@ -23,9 +23,9 @@ public class PeculiarsBlocks {
     public static final RegistryObject<Block> ALOE_ICE_CREAM_BLOCK = HELPER.createBlock("aloe_ice_cream_block", () -> new Block(Properties.ALOE_ICE_CREAM_BLOCK));
     public static final RegistryObject<Block> ALOE_CAKE_BLOCK = HELPER.createBlockNoItem("aloe_cake", () -> new FlavoredCakeBlock(PeculiarsItems.Foods.ALOE_CAKE, Properties.ALOE_CAKE));
 
-    public static final RegistryObject<Block> PASSION_FRUIT_MILKSHAKE_CAULDRON = HELPER.createBlockNoItem("passion_fruit_milkshake_cauldron", () -> new MilkshakeCauldronBlock(PeculiarsCauldronInteractions.PASSIONFRUIT_MILKSHAKE.map()));
+    public static final RegistryObject<Block> PASSION_FRUIT_MILKSHAKE_CAULDRON = HELPER.createBlockNoItem("passion_fruit_milkshake_cauldron", () -> new MilkshakeCauldronBlock(PeculiarsCauldronInteractions.PASSION_FRUIT_MILKSHAKE.map()));
     public static final RegistryObject<Block> PASSION_FRUIT_ICE_CREAM_BLOCK = HELPER.createBlock("passion_fruit_ice_cream_block", () -> new Block(Properties.PASSION_FRUIT_ICE_CREAM_BLOCK));
-    public static final RegistryObject<Block> PASSION_FRUIT_CAKE_BLOCK = HELPER.createBlockNoItem("passion_fruit_cake", () -> new FlavoredCakeBlock(PeculiarsItems.Foods.PASSIONFRUIT_CAKE, Properties.PASSION_FRUIT_CAKE));
+    public static final RegistryObject<Block> PASSION_FRUIT_CAKE_BLOCK = HELPER.createBlockNoItem("passion_fruit_cake", () -> new FlavoredCakeBlock(PeculiarsItems.Foods.PASSION_FRUIT_CAKE, Properties.PASSION_FRUIT_CAKE));
 
     static class Properties {
         public static final Block.Properties YUCCA_ICE_CREAM_BLOCK = Block.Properties.of().mapColor(MapColor.COLOR_LIGHT_GREEN).requiresCorrectToolForDrops().strength(0.2F).sound(SoundType.SNOW);

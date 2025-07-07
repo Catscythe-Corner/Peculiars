@@ -24,7 +24,7 @@ public class PeculiarsItemTagsProvider extends ItemTagsProvider {
         tag(NeapolitanItemTags.ICE_CREAM).add(
                 PeculiarsItems.YUCCA_ICE_CREAM.get(),
                 PeculiarsItems.ALOE_ICE_CREAM.get(),
-                PeculiarsItems.PASSIONFRUIT_ICE_CREAM.get()
+                PeculiarsItems.PASSION_FRUIT_ICE_CREAM.get()
         );
     }
 }

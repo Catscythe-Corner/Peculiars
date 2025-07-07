@@ -16,8 +16,8 @@ public class PeculiarsConfig {
         Common(ForgeConfigSpec.Builder builder) {
             builder.push("atmospheric");
             this.enableAtmosphericFood = builder.comment("If Atmospheric-flavored foods' recipes are enabled; defaults to true").define("EnableAtmosphericFood", true);
-            this.disableSorbet = builder.comment("If passionfruit sorbet recipe is disabled; defaults to true").define("DisableSorbet", true);
-            this.tartSpitting = builder.comment("If passionfruit tart gives spitting effect; defaults to true").define("TartSpitting", true);
+            this.disableSorbet = builder.comment("If passion fruit sorbet recipe is disabled; defaults to true").define("DisableSorbet", true);
+            this.tartSpitting = builder.comment("If passion fruit tart gives spitting effect; defaults to true").define("TartSpitting", true);
         }
     }
 

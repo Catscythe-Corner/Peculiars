@@ -29,9 +29,9 @@ public class PeculiarsItems {
     public static final RegistryObject<Item> ALOE_BERRY_SMOOTHIE = HELPER.createItem("aloe_berry_smoothie", () -> new HealingDrinkItem(2.0F, new Item.Properties().food(Foods.ALOE_BERRY_SMOOTHIE).stacksTo(16)));
     public static final RegistryObject<Item> ALOE_CAKE = HELPER.createItem("aloe_cake", () -> new BlockItem(PeculiarsBlocks.ALOE_CAKE_BLOCK.get(), new Item.Properties().stacksTo(1)));
 
-    public static final RegistryObject<Item> PASSIONFRUIT_ICE_CREAM = HELPER.createItem("passion_fruit_ice_cream", () -> new IceCreamItem(new Item.Properties().food(Foods.PASSIONFRUIT_ICE_CREAM).craftRemainder(Items.BOWL).stacksTo(1)));
-    public static final RegistryObject<Item> PASSIONFRUIT_MILKSHAKE = HELPER.createItem("passion_fruit_milkshake", () -> new MilkshakeItem(new Item.Properties().food(Foods.PASSIONFRUIT_MILKSHAKE).craftRemainder(Items.GLASS_BOTTLE).stacksTo(16)));
-    public static final RegistryObject<Item> PASSIONFRUIT_CAKE = HELPER.createItem("passion_fruit_cake", () -> new BlockItem(PeculiarsBlocks.PASSION_FRUIT_CAKE_BLOCK.get(), new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> PASSION_FRUIT_ICE_CREAM = HELPER.createItem("passion_fruit_ice_cream", () -> new IceCreamItem(new Item.Properties().food(Foods.PASSION_FRUIT_ICE_CREAM).craftRemainder(Items.BOWL).stacksTo(1)));
+    public static final RegistryObject<Item> PASSION_FRUIT_MILKSHAKE = HELPER.createItem("passion_fruit_milkshake", () -> new MilkshakeItem(new Item.Properties().food(Foods.PASSION_FRUIT_MILKSHAKE).craftRemainder(Items.GLASS_BOTTLE).stacksTo(16)));
+    public static final RegistryObject<Item> PASSION_FRUIT_CAKE = HELPER.createItem("passion_fruit_cake", () -> new BlockItem(PeculiarsBlocks.PASSION_FRUIT_CAKE_BLOCK.get(), new Item.Properties().stacksTo(1)));
 
     public static final RegistryObject<Item> TROPICAL_SALAD = HELPER.createItem("tropical_salad", () -> new BowlFoodItem(new Item.Properties().food(Foods.TROPICAL_SALAD).craftRemainder(Items.BOWL).stacksTo(1)));
 
@@ -47,12 +47,12 @@ public class PeculiarsItems {
         public static final FoodProperties ALOE_BERRY_SMOOTHIE = (new FoodProperties.Builder()).nutrition(3).saturationMod(0.6F).effect(() -> new MobEffectInstance(AtmosphericMobEffects.RELIEF.get(), 600), 1.0F).build();
         public static final FoodProperties ALOE_CAKE = (new FoodProperties.Builder()).nutrition(1).saturationMod(0.1F).effect(() -> new MobEffectInstance(AtmosphericMobEffects.RELIEF.get(), 200), 1.0F).build();
 
-        public static final FoodProperties PASSIONFRUIT_ICE_CREAM = (new FoodProperties.Builder()).nutrition(6).saturationMod(0.42F).effect(() -> new MobEffectInstance(AtmosphericMobEffects.SPITTING.get(), 100, 2), 1.0F).build();
-        public static final FoodProperties PASSIONFRUIT_MILKSHAKE = NeapolitanItems.NeapolitanFoods.createMilkshake(() -> new MobEffectInstance(AtmosphericMobEffects.SPITTING.get(), 200)).build();
-        public static final FoodProperties PASSIONFRUIT_CAKE = (new FoodProperties.Builder()).nutrition(1).saturationMod(0.1F).effect(() -> new MobEffectInstance(AtmosphericMobEffects.SPITTING.get(), 100), 1.0F).build();
+        public static final FoodProperties PASSION_FRUIT_ICE_CREAM = (new FoodProperties.Builder()).nutrition(6).saturationMod(0.42F).effect(() -> new MobEffectInstance(AtmosphericMobEffects.SPITTING.get(), 100, 2), 1.0F).build();
+        public static final FoodProperties PASSION_FRUIT_MILKSHAKE = NeapolitanItems.NeapolitanFoods.createMilkshake(() -> new MobEffectInstance(AtmosphericMobEffects.SPITTING.get(), 200)).build();
+        public static final FoodProperties PASSION_FRUIT_CAKE = (new FoodProperties.Builder()).nutrition(1).saturationMod(0.1F).effect(() -> new MobEffectInstance(AtmosphericMobEffects.SPITTING.get(), 100), 1.0F).build();
 
         public static final FoodProperties TROPICAL_SALAD = (new FoodProperties.Builder()).nutrition(6).saturationMod(1.1F).effect(() -> new MobEffectInstance(AtmosphericMobEffects.SPITTING.get(), 100), 1.0F).effect(() -> new MobEffectInstance(AtmosphericMobEffects.PERSISTENCE.get(), 200, 1), 1.0F).effect(() -> new MobEffectInstance(AtmosphericMobEffects.RELIEF.get(), 400, 1), 1.0F).build();
 
-        public static final FoodProperties PASSIONFRUIT_TART = (new FoodProperties.Builder()).nutrition(4).saturationMod(0.6F).effect(() -> new MobEffectInstance(AtmosphericMobEffects.SPITTING.get(), 100, 0), 1.0F).build();
+        public static final FoodProperties PASSION_FRUIT_TART = (new FoodProperties.Builder()).nutrition(4).saturationMod(0.6F).effect(() -> new MobEffectInstance(AtmosphericMobEffects.SPITTING.get(), 100, 0), 1.0F).build();
     }
 }

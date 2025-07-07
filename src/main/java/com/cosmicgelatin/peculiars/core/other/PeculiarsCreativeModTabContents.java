@@ -18,7 +18,7 @@ public class PeculiarsCreativeModTabContents {
                 .addItems(
                         YUCCA_ICE_CREAM, YUCCA_MILKSHAKE, YUCCA_FUDGE, YUCCA_CAKE,
                         ALOE_ICE_CREAM, ALOE_MILKSHAKE, ALOE_JELLY_SLICE, ALOE_BERRY_SMOOTHIE, ALOE_CAKE,
-                        PASSIONFRUIT_ICE_CREAM, PASSIONFRUIT_MILKSHAKE, PASSIONFRUIT_CAKE, TROPICAL_SALAD
+                        PASSION_FRUIT_ICE_CREAM, PASSION_FRUIT_MILKSHAKE, PASSION_FRUIT_CAKE, TROPICAL_SALAD
                 )
                 .tab(CreativeModeTabs.BUILDING_BLOCKS)
                 .addItems(

@@ -110,7 +110,8 @@ repositories {
 dependencies {
     minecraft "net.minecraftforge:forge:${mc_version}-${forge_version}"
 
-    implementation fg.deobf("com.teamabnormals:blueprint:${mc_version}-${blueprint}")
+    implementation fg.deobf("curse.maven:blueprint-382216:${blueprint_id}")
+    implementation fg.deobf("curse.maven:gallery-1173553:${gallery_id}")
     implementation fg.deobf("curse.maven:neapolitan-382016:${neapolitan_id}")
     implementation fg.deobf("curse.maven:atmospheric-362393:${atmospheric_id}")
     runtimeOnly fg.deobf("curse.maven:jei-238222:5846810")
